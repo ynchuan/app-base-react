@@ -9,3 +9,7 @@ coverage/
 
 # ignore docs
 esdoc/
+
+# ignore docs
+.idea/
+
