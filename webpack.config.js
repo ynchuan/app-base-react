@@ -27,64 +27,49 @@ module.exports = {
         configFile: path.join(__dirname, '.eslintrc'),
     },
     module: {
-        preLoaders: [
-            {
-                test: /\.jsx?$/,
-                exclude: /node_modules/,
-                loader: 'eslint'
-            },
-        ],
-        loaders: [
-            {
-                test: /\.css$/,
-                loaders: ['style', 'css'],
-            },
-            {
-                test: /\.json$/,
-                loader: 'json',
-            },
-            {
-                test: /\.less$/,
-                loaders: ['style', 'css', 'less'],
-            },
-            {
-                test: /\.scss$/,
-                loaders: ['style', 'css', 'sass'],
-            },
-            {
-                test: /\.styl$/,
-                loaders: ['style', 'css', 'stylus'],
-            },
-            {
-                test: /\.jsx?$/,
-                exclude: /node_modules/,
-                loaders: ['react-hot', 'babel'],
-            },
-            {
-                test: /\.woff\d?(\?.+)?$/,
-                loader: 'url?limit=10000&minetype=application/font-woff',
-            },
-            {
-                test: /\.ttf(\?.+)?$/,
-                loader: 'url?limit=10000&minetype=application/octet-stream',
-            },
-            {
-                test: /\.eot(\?.+)?$/,
-                loader: 'url?limit=10000',
-            },
-            {
-                test: /\.svg(\?.+)?$/,
-                loader: 'url?limit=10000&minetype=image/svg+xml',
-            },
-            {
-                test: /\.png$/,
-                loader: 'url?limit=10000&mimetype=image/png',
-            },
-            {
-                test: /\.gif$/,
-                loader: 'url?limit=10000&mimetype=image/gif'
-            }
-        ],
+        preLoaders: [{
+            test: /\.jsx?$/,
+            exclude: /node_modules/,
+            loader: 'eslint'
+        }, ],
+        loaders: [{
+            test: /\.css$/,
+            loaders: ['style', 'css'],
+        }, {
+            test: /\.json$/,
+            loader: 'json',
+        }, {
+            test: /\.less$/,
+            loaders: ['style', 'css', 'less'],
+        }, {
+            test: /\.scss$/,
+            loaders: ['style', 'css', 'sass'],
+        }, {
+            test: /\.styl$/,
+            loaders: ['style', 'css', 'stylus'],
+        }, {
+            test: /\.jsx?$/,
+            exclude: /node_modules/,
+            loaders: ['react-hot', 'babel'],
+        }, {
+            test: /\.woff\d?(\?.+)?$/,
+            loader: 'url?limit=10000&minetype=application/font-woff',
+        }, {
+            test: /\.ttf(\?.+)?$/,
+            loader: 'url?limit=10000&minetype=application/octet-stream',
+        }, {
+            test: /\.eot(\?.+)?$/,
+            loader: 'url?limit=10000',
+        }, {
+            test: /\.svg(\?.+)?$/,
+            loader: 'url?limit=10000&minetype=image/svg+xml',
+        }, {
+            test: /\.png$/,
+            loader: 'url?limit=10000&mimetype=image/png',
+        }, {
+            test: /\.gif$/,
+            loader: 'url?limit=10000&mimetype=image/gif'
+        }],
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),

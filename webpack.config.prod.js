@@ -3,10 +3,10 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     context: path.resolve(__dirname),
-    entry: './src/index.js',
+    entry: './src/components/search/index.jsx',
     output: {
-        path: path.join(__dirname, 'dist'),
-        filename: 'app.min.js',
+        path: path.join(__dirname, 'src/components/search'),
+        filename: 'search.js',
     },
     resolve: {
         root: path.resolve(__dirname),

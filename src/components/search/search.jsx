@@ -10,7 +10,7 @@ var SearchLinks = React.createClass({
 				clstmp="a-links";
 			}
 			return <a href="#" className={clstmp}>{ele}</a>
-		})
+		}.bind(this));
 		return ( 
 			<div className = "search-title" onClick = {this.linkClick}>
 				{retDom}
@@ -18,7 +18,7 @@ var SearchLinks = React.createClass({
 		);
 	},
 	linkClick: function(e) {
-		var key = e.target.innerText();
+		var key = e.target.innerText;
 		this.props.linkClick(key);
 	}
 });
@@ -26,14 +26,14 @@ var SearchBody = React.createClass({
 	render: function() {
 		return ( 
 			<div className = "search-body">
-				<input type = "text" className = "inpt-search" ref = "searchinput" / >
-				<button className = "search-btn" onClick = {this.search }> 搜索 </button>
+				<input type ="text" className="inpt-search" ref="searchinput" />
+				<button className="search-btn" onClick ={this.search }> 搜索 </button>
 			</div> 
 		);
 	},
 	search:function(){
 		var type=this.props.selectVal;
-		var key=this.refs.searchinput;
+		var key=this.refs["searchinput"].getDOMNode().value;
 		console.log(type+" key="+key);
 	}
 });
@@ -48,9 +48,11 @@ var Search = React.createClass({
 	},
 	render: function() { 
 		return ( 
-			<SearchLinks renderVal = {this.state.renderVal} linkClick={this.linkClick}/>
-			<SearchBody selectVal={this.state.renderVal}/>
+			<div>
+				<SearchLinks renderVal = {this.state.renderVal} linkClick={this.linkClick}/>
+				<SearchBody selectVal={this.state.renderVal}/>
+			</div>
 		);
 	}
 });
-exports.default = Search;
+module.exports = Search;
