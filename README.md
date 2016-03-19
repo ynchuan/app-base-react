@@ -25,5 +25,7 @@ es6除非使用webpack类似工具进行打包，转化其中的require和export
 > 配置文件：.babelrc<{presets:["es2015","react"]};
 > 以上工具插件可以实现es6语法的转换以及react语法转化查看
 > $ babel script.es6 -o script-compile.js  完成es6件的转化为es5 (可添加参数：--presets react --presets es2015)
-> 
 > 或者babel test-es6-to-es5 -d test-dist
+
+采用babel配合babel插件可以实现es6和jsx语法转化为es5,但是为nodejs的api的es5语法,其最后通过webpack打包实现browser端api语法。
+以上顶层都可以通过webpack插件实现一次集成。
