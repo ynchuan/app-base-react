@@ -61,3 +61,5 @@ npm install webpack-dev-server -g
 webpack-dev-server --config webpack.flux.js -w --color;
 监视文件修改，热加载文件，文件存在内存
 
+5、使用各种loader要安装**-loader包
+

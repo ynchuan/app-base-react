@@ -84,5 +84,10 @@
         path:"./flux-todos",
         filename:"app.bundle.js"
     }
-
+    module:{
+    	loaders:[{
+    		test:/.js$/,
+    		loader:"babel"
+    	}]
+    }
  }
