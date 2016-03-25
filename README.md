@@ -25,6 +25,7 @@ es6除非使用webpack类似工具进行打包，转化其中的require和export
 > 配置文件：.babelrc<{presets:["es2015","react"]};
 > 以上工具插件可以实现es6语法的转换以及react语法转化查看
 > $ babel script.es6 -o script-compile.js  完成es6件的转化为es5
+> $ babel example.es6 -o example.js -m amd  生成amd模块
 > 或者babel test-es6-to-es5 -d test-dist
 > 单独编译jsx语法以及es5的方法：采用babel+babel-preset-react插件可以进行jsx语法编译成es5文件，命令：babel example.js -o a.js --presets babel-preset-react
 > 最后要完成es6+jsx语法向es5的编译，则要配合babel-presets-es2015+babel-presets-react插件共同进行，命令中添加参数：--presets react --presets es2015
@@ -60,4 +61,6 @@ module.exports={
 npm install webpack-dev-server -g
 webpack-dev-server --config webpack.flux.js -w --color;
 监视文件修改，热加载文件，文件存在内存
+
+5、使用各种loader要安装**-loader包
 

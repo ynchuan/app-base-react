@@ -77,11 +77,18 @@
 //     ],
 // };
 
+
 var path = require("path");
 module.exports = {
 	entry: ["./flux-todos/app.js", "./flux-todos/a.js"],
 	output: {
 		path: "./flux-todos",
 		filename: "app.bundle.js"
+	},
+	module: {
+		loaders: [{
+			test: /.js$/,
+			loader: "babel"
+		}]
 	}
 }
