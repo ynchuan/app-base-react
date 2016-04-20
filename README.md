@@ -63,4 +63,15 @@ webpack-dev-server --config webpack.flux.js -w --color;
 监视文件修改，热加载文件，文件存在内存
 
 5、使用各种loader要安装**-loader包
+主要：babel-loader版本大于6.0时可以使用.babelrc文件
+
+
+nodejs
+1、版本号：
+*任意版本
+1.1.0 指定版本为1.1.0
+~1.1.0  1.1.0~1.2.0 匹配到 x.y.z 中 z 最新的版本 例如1.1.9
+^1.1.0  1.1.0~2.0.0 匹配到 y 和 z 都是最新的版本 例如1.9.9
+
+
 
