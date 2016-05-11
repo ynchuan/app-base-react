@@ -157,6 +157,9 @@
 	var Archives = _react2.default.createClass({
 	    displayName: 'Archives',
 
+	    componentWillMount: function componentWillMount() {
+	        console.log("Archives componentWillMount");
+	    },
 	    render: function render() {
 	        return _react2.default.createElement(
 	            'div',
@@ -168,6 +171,10 @@
 	            _react2.default.createElement('br', null),
 	            this.props.reproduce
 	        );
+	    },
+	    shouldComponentUpdate: function shouldComponentUpdate() {
+	        console.log("Archives shouldComponentUpdate");
+	        return true;
 	    }
 	});
 
@@ -229,6 +236,10 @@
 	                })
 	            )
 	        );
+	    },
+	    shouldComponentUpdate: function shouldComponentUpdate() {
+	        console.log("Reproduce shouldComponentUpdate");
+	        return true;
 	    }
 	});
 
@@ -363,6 +374,84 @@
 	        _react2.default.createElement(_reactRouter.Route, { path: 'about', component: About })
 	    )
 	), document.getElementById('example'));
+
+	var Child = _react2.default.createClass({
+	    displayName: 'Child',
+
+	    getInitialState: function getInitialState() {
+	        console.log("Child geyInitialState");
+	        return {};
+	    },
+
+	    componentWillMount: function componentWillMount() {
+	        console.log("Child componentWillMount");
+	    },
+
+	    render: function render() {
+	        console.log("Child render");
+	        return _react2.default.createElement(
+	            'div',
+	            { onClick: this.props.aa },
+	            'hello ',
+	            _react2.default.createElement(
+	                'strong',
+	                null,
+	                this.props.name
+	            )
+	        );
+	    },
+
+	    componentDidMount: function componentDidMount() {
+	        console.log("Child componentDidMount");
+	    },
+
+	    componentWillReceiveProps: function componentWillReceiveProps() {
+	        console.log("Child componentWillReceiveProps");
+	    },
+	    componentWillUpdate: function componentWillUpdate() {
+	        console.log("Child componentWillUpdate");
+	    },
+	    componentDidUpdate: function componentDidUpdate() {
+	        console.log("Child componentDidUpdate");
+	    }
+
+	});
+
+	var Parent = _react2.default.createClass({
+	    displayName: 'Parent',
+
+	    getInitialState: function getInitialState() {
+	        console.log("Parent geyInitialState");
+	        return {};
+	    },
+
+	    componentWillMount: function componentWillMount() {
+	        console.log("Parent componentWillMount");
+	    },
+
+	    render: function render() {
+	        console.log("Parent render");
+	        return _react2.default.createElement(Child, { name: 'bbb', aa: this.jk });
+	    },
+
+	    componentDidMount: function componentDidMount() {
+	        console.log("Parent componentDidMount");
+	    },
+	    jk: function jk() {
+	        this.setState({});
+	    },
+	    componentWillReceiveProps: function componentWillReceiveProps() {
+	        console.log("Parent componentWillReceiveProps");
+	    },
+	    componentWillUpdate: function componentWillUpdate() {
+	        console.log("Parent componentWillUpdate");
+	    },
+	    componentDidUpdate: function componentDidUpdate() {
+	        console.log("Parent componentDidUpdate");
+	    }
+
+	});
+	(0, _reactDom.render)(_react2.default.createElement(Parent, null), document.getElementById("example1"));
 
 /***/ },
 /* 1 */
