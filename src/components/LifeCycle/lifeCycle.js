@@ -17,6 +17,7 @@ var Lfcy=React.createClass({
             <div>
                 <div onClick={this.chgProp}>chgProp</div>
                 <div onClick={this.chgState}>chgState</div>
+                <Child/>
             </div>
             );
     },
@@ -44,6 +45,41 @@ var Lfcy=React.createClass({
     },
     componentDidMount: function() {
         console.log("componentDidMount");
+    }
+
+});
+var Child=React.createClass({
+    getInitialState:function(){
+        console.log("Child getInitialState");
+
+    },
+    render:function(){
+        console.log("this.state.name:"+this.state.name);
+        console.log("this.props.test:"+this.props.test);
+        return (
+            <div>
+               123
+            </div>
+        );
+    },
+    componentWillReceiveProps:function(){
+        console.log("Child componentWillReceiveProps");
+    },
+    shouldComponentUpdate:function(){
+        console.log("Child shouldComponentUpdate");
+        return true;
+    },
+    componentWillUpdate:function(){
+        console.log("Child componentWillUpdate");
+    },
+    componentDidUpdate: function() {
+        console.log("Child componentDidUpdate");
+    },
+    componentWillMount: function() {
+        console.log("Child componentWillMount");
+    },
+    componentDidMount: function() {
+        console.log("Child componentDidMount");
     }
 
 });

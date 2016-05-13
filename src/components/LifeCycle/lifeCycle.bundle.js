@@ -75,7 +75,8 @@
 	                "div",
 	                { onClick: this.chgState },
 	                "chgState"
-	            )
+	            ),
+	            React.createElement(Child, null)
 	        );
 	    },
 	    chgProp: function chgProp() {
@@ -102,6 +103,42 @@
 	    },
 	    componentDidMount: function componentDidMount() {
 	        console.log("componentDidMount");
+	    }
+
+	});
+	var Child = React.createClass({
+	    displayName: "Child",
+
+	    getInitialState: function getInitialState() {
+	        console.log("Child getInitialState");
+	    },
+	    render: function render() {
+	        console.log("this.state.name:" + this.state.name);
+	        console.log("this.props.test:" + this.props.test);
+	        return React.createElement(
+	            "div",
+	            null,
+	            "123"
+	        );
+	    },
+	    componentWillReceiveProps: function componentWillReceiveProps() {
+	        console.log("Child componentWillReceiveProps");
+	    },
+	    shouldComponentUpdate: function shouldComponentUpdate() {
+	        console.log("Child shouldComponentUpdate");
+	        return true;
+	    },
+	    componentWillUpdate: function componentWillUpdate() {
+	        console.log("Child componentWillUpdate");
+	    },
+	    componentDidUpdate: function componentDidUpdate() {
+	        console.log("Child componentDidUpdate");
+	    },
+	    componentWillMount: function componentWillMount() {
+	        console.log("Child componentWillMount");
+	    },
+	    componentDidMount: function componentDidMount() {
+	        console.log("Child componentDidMount");
 	    }
 
 	});
