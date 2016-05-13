@@ -43,11 +43,19 @@ var BlogApp = React.createClass({
         return (
             <div className="blog-app">
                 <ul>
+<<<<<<< HEAD
                 <li><Link activeClassName="active" to="/archives">Archives</Link></li>
                 <li><Link activeClassName="active" to="/about">About</Link></li>
                 <li><Link activeClassName="active" to="/signIn">Sign in</Link></li>
                 <li><Link activeClassName="active" to="/signOut">Sign out</Link></li>
             </ul>
+=======
+                    <li><Link activeClassName="active" to="/archives">Archives</Link></li>
+                    <li><Link activeClassName="active" to="/about">About</Link></li>
+                    <li><Link activeClassName="active" to="/signIn">Sign in</Link></li>
+                    <li><Link activeClassName="active" to="/signOut">Sign out</Link></li>
+                </ul>
+>>>>>>> 8b1efe1d72a1c1608c8b4f03476b26f9c0424056
                 {React.cloneElement(this.props.children || <div/>, {key: pathname})}
             </div>
         )
@@ -65,6 +73,13 @@ var About = React.createClass({
 })
 
 var Archives = React.createClass({
+<<<<<<< HEAD
+=======
+    componentWillMount:function(){
+        console.log("Archives componentWillMount");
+
+    },
+>>>>>>> 8b1efe1d72a1c1608c8b4f03476b26f9c0424056
     render: function () {
         return (
             <div>
@@ -74,6 +89,10 @@ var Archives = React.createClass({
                 {this.props.reproduce}
             </div>
         )
+    },
+    shouldComponentUpdate:function(){
+        console.log("Archives shouldComponentUpdate");
+        return true;
     }
 });
 
@@ -119,6 +138,10 @@ var Reproduce = React.createClass({
                 </ul>
             </div>
         )
+    },
+    shouldComponentUpdate:function(){
+        console.log("Reproduce shouldComponentUpdate");
+        return true;
     }
 });
 
@@ -206,3 +229,76 @@ render((
         </Route>
     </Router>
 ), document.getElementById('example'))
+
+
+var Child= React.createClass({
+    getInitialState: function() {
+        console.log("Child geyInitialState");
+        return {};
+    },
+
+    componentWillMount: function() {
+        console.log("Child componentWillMount");
+    },
+
+    render: function() {
+        console.log("Child render");
+        return (
+            <div onClick={this.props.aa}>hello <strong>{this.props.name}</strong></div>
+        );
+    },
+
+    componentDidMount: function() {
+        console.log("Child componentDidMount");
+    },
+
+    componentWillReceiveProps: function() {
+        console.log("Child componentWillReceiveProps");
+    },
+    componentWillUpdate: function() {
+        console.log("Child componentWillUpdate");
+    },
+    componentDidUpdate: function() {
+        console.log("Child componentDidUpdate");
+    }
+
+});
+
+var Parent= React.createClass({
+    getInitialState: function() {
+        console.log("Parent geyInitialState");
+        return {};
+    },
+
+    componentWillMount: function() {
+        console.log("Parent componentWillMount");
+    },
+
+    render: function() {
+        console.log("Parent render");
+        return (
+            <Child name='bbb' aa={this.jk}></Child>
+        );
+    },
+
+    componentDidMount: function() {
+        console.log("Parent componentDidMount");
+    },
+    jk:function(){
+        this.setState({});
+    },
+    componentWillReceiveProps: function() {
+        console.log("Parent componentWillReceiveProps");
+    },
+    componentWillUpdate: function() {
+        console.log("Parent componentWillUpdate");
+    },
+    componentDidUpdate: function() {
+        console.log("Parent componentDidUpdate");
+    }
+
+});
+render(
+    <Parent/>,
+    document.getElementById("example1")
+);
