@@ -61,5 +61,5 @@ module.exports = {
         new ExtractTextPlugin('style.css', {
             allChunks: true
         }),
-    ],
+    ]
 }
