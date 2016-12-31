@@ -20786,6 +20786,7 @@
 	  return boundActionCreators;
 	}
 
+
 /***/ },
 /* 172 */
 /***/ function(module, exports, __webpack_require__) {
@@ -21079,13 +21080,14 @@
 	exports.default = (0, _reactRedux.connect)(function (state) {
 	    return {
 	        items: state.items,
-	        filter: state.filter
+	        filter: state.filter,
+	        test: state.test
 	    };
 	}, function (dispatch) {
 	    return {
 	        actions: (0, _redux.bindActionCreators)(acts, dispatch)
 	    };
-	})(Main);
+	})(Main); //该处用来给connent设置state和prop：state：item|filter，prop：actions
 
 /***/ },
 /* 188 */
@@ -21363,7 +21365,7 @@
 
 	/**
 	 * Created by lenovo on 2016/4/5.
-	 */
+	*/
 	exports.default = (0, _redux.createStore)(_miReducer2.default);
 
 /***/ },
@@ -21397,6 +21399,22 @@
 
 	function items() {
 	    var state = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
+	    var action = arguments[1];
+
+	    switch (action.type) {
+	        case "add":
+	            return [].concat(_toConsumableArray(state), [state.length]);
+	        case "delItem":
+	            return state.slice(0).splice(action.item - 1, action.item);
+	        case "delAll":
+	            return [];
+	        default:
+	            return state;
+	    }
+	}
+
+	function test() {
+	    var state = arguments.length <= 0 || arguments[0] === undefined ? 123 : arguments[0];
 	    var action = arguments[1];
 
 	    switch (action.type) {

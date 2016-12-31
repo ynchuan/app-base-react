@@ -27,10 +27,11 @@ class Main extends React.Component{
 export default connect((state)=>{
     return {
         items:state.items,
-        filter:state.filter
+        filter:state.filter,
+        test:state.test
     }
 },function(dispatch){
     return {
         actions:bindActionCreators(acts,dispatch)
     }
-})(Main);
+})(Main);//该处用来给connent设置state和prop：state：item|filter，prop：actions

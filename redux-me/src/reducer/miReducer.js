@@ -24,4 +24,17 @@ function items(state = [], action) {
     }
 }
 
+function test(state = 123, action) {
+    switch (action.type) {
+        case "add":
+            return [...state, state.length];
+        case "delItem":
+            return state.slice(0).splice(action.item - 1, action.item);
+        case "delAll":
+            return [];
+        default:
+            return state;
+    }
+}
+
 export default combineReducers({items, filter});

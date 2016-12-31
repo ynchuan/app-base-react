@@ -1,8 +1,8 @@
 var path = require("path");
 module.exports = {
-	entry: "./src/components/LifeCycle/lifeCycle.js",
+	entry: "./demo/LifeCycle/lifeCycle.js",
 	output: {
-		path: "./src/components/LifeCycle/",
+		path: "./demo/LifeCycle/",
 		filename: "lifeCycle.bundle.js"
 	},
 	module: {
