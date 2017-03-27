@@ -38,7 +38,21 @@ webpack 使用记录
 1、命令行直接使用：
 $ webpack app.js app.bundle.js
 $ webpack app.js app.bundle.js --module-bind 'css=style!css';
+
+// es5中react编码搭配jsx-loader进行解析成es5(解析jsx)-->打包后代码
+$ webpack demo/es5-react/a.jsx a-demo-1.js --module-bind 'jsx=jsx-loader?harmon; // es5编写react时进入主目录(node_module所在目录)
+
+// es6中react编码搭配babel-loader进行解析成es5(解析jsx+es6)-->打包后代码
+$ webpack demo/es6-react/a.jsx a-demo-2.js --module-bind 'jsx=babel-loader?presets[]=es2015,presets[]=react'
+
+// 或者es5中也采用babel-loader解析
+$ webpack demo/es5-react/a.jsx a-demo-3.js --module-bind 'jsx=babel-loader?presets[]=react'
+
+// es6+jsx ---babel---> es5---webpack-->browser code
+$ babel  demo/es6-react/a.jsx  -o  a-es5.js
+
 //该处或者在文件中直接添加require("!style!css!./style.css"),避免命令行再次添加。
+
 2、通过配置文件使用：
 $ webpack --config webpack.flux.js
 配置文件：webpack.flux.js,例如：
